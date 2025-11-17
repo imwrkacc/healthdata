@@ -1,0 +1,58 @@
+# Prometheus configuration for HealthKit metrics
+
+global:
+  scrape_interval: 60s      # Scrape targets every 60 seconds
+  evaluation_interval: 60s  # Evaluate rules every 60 seconds
+  scrape_timeout: 10s       # Timeout after 10 seconds
+
+  # Attach these labels to any time series or alerts
+  external_labels:
+    monitor: 'healthkit-monitor'
+    environment: 'personal'
+
+# Scrape configurations
+scrape_configs:
+  # HealthKit metrics from iPhone
+  - job_name: 'healthkit'
+    scrape_interval: 60s
+    scrape_timeout: 10s
+
+    # Use localhost:9090 when using iproxy for USB connection
+    # Change to your iPhone's IP address if using WiFi
+    static_configs:
+      - targets: ['host.docker.internal:9090']  # For Docker on Mac
+        # - targets: ['localhost:9090']         # For local Prometheus
+        # - targets: ['192.168.1.100:9090']     # For WiFi connection
+        labels:
+          device: 'iphone_12'
+          device_type: 'iphone'
+          source: 'healthkit'
+          user: 'personal'
+
+  # Additional target for Apple Watch metrics (if separated)
+  # - job_name: 'apple_watch'
+  #   scrape_interval: 60s
+  #   static_configs:
+  #     - targets: ['host.docker.internal:9090']
+  #       labels:
+  #         device: 'apple_watch_se2'
+  #         device_type: 'watch'
+  #         source: 'healthkit'
+
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    scrape_interval: 30s
+    static_configs:
+      - targets: ['localhost:9090']
+        labels:
+          service: 'prometheus'
+
+# Optional: Alerting rules
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets: []
+
+# Optional: Recording rules for complex queries
+# rule_files:
+#   - "rules/*.yml"

@@ -1,0 +1,49 @@
+# Xcode
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+*.xcworkspace
+xcuserdata/
+*.xcuserstate
+*.xcscheme
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Build
+build/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# CocoaPods
+Pods/
+*.podfile.lock
+
+# Swift Package Manager
+.swiftpm/
+.build/
+Packages/
+Package.resolved
+
+# Prometheus & Grafana data
+prometheus-data/
+grafana-data/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# IDE
+.idea/
+.vscode/
+
+# Environment
+.env
+.env.local
