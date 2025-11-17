@@ -1,0 +1,13 @@
+# No external dependencies required!
+# The health_exporter.py uses only Python standard library.
+
+# Python 3.6+ required for:
+# - xml.etree.ElementTree
+# - http.server
+# - datetime
+# - argparse
+# - typing
+
+# Optional: For development
+# pytest>=7.0.0
+# black>=22.0.0

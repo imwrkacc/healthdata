@@ -1,6 +1,34 @@
 # HealthKit Prometheus Exporter
 
-A native iOS app that exports Apple HealthKit metrics in Prometheus format for visualization in Grafana. Access comprehensive health data from your iPhone and Apple Watch including steps, heart rate, sleep, workouts, and much more.
+Export your Apple HealthKit metrics to Prometheus format for visualization in Grafana. Access comprehensive health data from your iPhone and Apple Watch including steps, heart rate, sleep, workouts, and much more.
+
+## 🚀 Two Ways to Export Your Data
+
+### Option 1: Python Exporter (No macOS Required!) ⭐ **RECOMMENDED**
+
+**Perfect if you don't have a Mac or don't want to build an iOS app.**
+
+- ✅ Works on **Linux, Windows, or Mac**
+- ✅ **No Xcode or iOS development needed**
+- ✅ **No Apple Developer account required**
+- ✅ Simple Python script using Apple Health's built-in export feature
+- ⚠️ Manual updates (export data periodically from Health app)
+
+**→ [Get Started with Python Exporter](PYTHON_EXPORTER.md)** (5 minutes setup)
+
+### Option 2: Native iOS App (Real-time Data)
+
+**Choose this if you have a Mac and want real-time continuous monitoring.**
+
+- ✅ **Real-time data** directly from HealthKit
+- ✅ Automatic updates as you move throughout the day
+- ✅ Runs HTTP server on your iPhone
+- ⚠️ Requires macOS + Xcode to build
+- ⚠️ Requires Apple Developer account (free tier OK)
+
+**→ Continue reading below for iOS app setup**
+
+---
 
 ## Features
 
